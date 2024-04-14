@@ -3,6 +3,7 @@ import sys
 from json import dumps
 from flask_cors import CORS
 from flask import Flask, request
+from echo import echo_upper
 import graph as GR
 
 APP = Flask(__name__)
@@ -11,9 +12,10 @@ CORS(APP)
 
 @APP.route('/echo/post/', methods=['GET'])
 def echo2():
-    """ Description of function """
+    message = request.args.get('message')
+    message = echo(message)
     return dumps({
-        'echo' : 'Hwllo World',
+        'echo' : message,
     })
 
 if __name__ == "__main__":

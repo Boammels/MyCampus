@@ -1,0 +1,63 @@
+1. building
+[{
+    name: Chueng Yuet Ming Cultural Center
+    abbreviation: 'CYMCC'
+    id: 0001
+    latitude: 23.111
+    longitude: 111.12
+    facilities:
+        [
+            {
+                type: 'classroom'
+                id: [0001.0002]
+            },
+            {
+                type: 'canteen'
+                id: [0003]
+            }
+        ]
+},
+{
+    name: Main Library
+    abbreviation: 'ML'
+    id: 0002
+    latitude: 23.111
+    longitude: 111.12
+    facilities:
+        [
+            {
+                type: 'library'
+                id: [0005.0006,0007]
+            },
+            {
+                type: 'water station'
+                id: [0008]
+            }
+        ]
+}]
+
+
+2.
+[
+    {
+        type: classroom
+        name: CYM-201
+        location: '2nd floor, Chueng Yuet Ming Cultural Center'
+    }
+    {
+        type:  study zone
+        name: Ting Ka Ping Library
+        appointment: [{
+            name: discussion room
+            url: www.ww.ww.ww
+            }]
+        ]
+    }
+    {
+        type: canteen
+        name: Maxim's
+        dishes recommendation: []
+        crowdness: random()
+        location
+    }
+]
