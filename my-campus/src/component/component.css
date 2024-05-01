@@ -1,0 +1,200 @@
+.barOpen {
+    z-index: 4;
+    position: fixed;
+    top:30px;
+    height: 40px;
+    width: 40px;
+    background-color: #047701;
+    color: white;
+    border-radius: 10px;
+    border-color: #047701;
+    box-shadow: none;
+}
+
+.menuIcon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+#mapComponent {
+    height: 100vh;
+    width: 100%;
+    z-index: 0;
+    top: 0;
+    position: fixed;
+}
+
+.SideBar {
+    width: 70%;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    position: fixed;
+    height: 85%;
+    background-color: #e8e8e8;
+    border-bottom-right-radius: 10px;
+}
+
+.userSec {
+    margin-top: 30px;
+    margin-left: 30px;
+    height: 100px;
+}
+
+.profile {
+    height: 50px;
+    width: 50px;
+    border-radius: 30px;
+    background-color: black;
+    margin-left: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.userNameSec {
+    padding: 20px;
+    padding-left: 0px;
+    text-align: center;
+    display: flex;
+}
+
+.profilePhoto {
+    margin: 13px;
+    background-color: black;
+    font-size: large;
+    color: white;
+}
+
+.userName {
+    display: inline;
+}
+
+.loginIcon {
+    margin: 10px;
+    position: absolute;
+    display: inline;
+    transform: translate(1px, -5px);
+}
+
+.blackback {
+    background-color: black;
+    z-index: 3;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    opacity: 40%;
+}
+
+.menu {
+    margin-top: 20px;
+    width: 100%
+}
+
+.timetableSelection {
+    border-width: 0px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-top-width: 1px;
+    border-color: black;
+    border-style: solid;
+    padding-left: 30px;
+    background-color: #d9d9d9;
+    font-size: 20px;
+}
+
+.friendSelection {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border-width: 0px;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-color: black;
+    border-style: solid;
+    padding-left: 30px;
+    background-color: #d9d9d9;
+    font-size: 20px;
+}
+
+.searchOpen {
+    z-index: 3;
+    position: fixed;
+    top: 80px;
+    left: 20px;
+    height: 40px;
+    width: 40px;
+    background-color: #047701;
+    color: white;
+    border-radius: 10px;
+    border-color: #047701;
+    box-shadow: none;
+}
+
+.blackback2 {
+    background-color: black;
+    z-index: 9;
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    opacity: 40%;
+}
+
+.SearchPanel {
+    z-index: 10;
+    position: fixed;
+    top: 10%;
+    left: 50px;
+    right: 50px;
+    height: 70%;
+    width: calc(100%-100px);
+    background-color: #e8e8e8;
+    border-radius: 10px;
+    padding: 10px;
+   
+}
+
+.container {
+    display: grid;
+    grid-template-columns: calc(100%/2) calc(100%/2);
+    grid-template-rows: 50px 50px 50px;
+}
+
+.item {
+    margin: 5px;
+    height: 30px;
+}
+
+.textInput {
+    width: calc(100% - 20px);
+    margin: auto;
+    height: 30px;
+    border-radius: 25px;
+    border-style: none;
+    padding: 10px;
+}
+
+.submit {
+    width: calc(50% - 20px);
+    height: 40px;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10px;
+    margin: 10px;
+    border-color: #047701;
+    background-color: #047701;
+    color: #d9d9d9;
+}
+
+.cancel {
+    width: calc(50% - 20px);
+    height: 40px;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 10px;
+    margin: 10px;
+    border-color: #047701;
+    background-color: #d9d9d9;
+    color: #047701;
+}
+
