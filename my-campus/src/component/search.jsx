@@ -3,6 +3,7 @@ import React from "react";
 import "./component.css";
 
 import SearchIcon from '@mui/icons-material/Search';
+import CloseIcon from '@mui/icons-material/Close';
 
 const Search = () => {
     const facility_types = ['Canteen', 'Classroom', 'Retail', 'Printer', 'Library', 'Water refill']
@@ -25,6 +26,14 @@ const Search = () => {
                 }}><SearchIcon className="menuIcon"/>
             </div>
             {display && <div className='SearchPanel'>
+                <button
+                    className="cancel"
+                    onClick={() => {
+                        setDisplay(false);
+                        setInput('');
+                        setType('all');
+                    }}
+                ><CloseIcon /></button>
                 <p>Enter Building Name:</p>
                 <input type='text' className="textInput" value={input} onChange={e => {
                     setInput(e.target.value);
@@ -53,21 +62,15 @@ const Search = () => {
                         )
                     })}
                 </div>
-                <button
-                    className="submit"
-                    onClick={() => {
-                        console.log(input);
-                        console.log(type);
-                    }}
-                >Submit</button>
-                <button
-                    className="cancel"
-                    onClick={() => {
-                        setDisplay(false);
-                        setInput('');
-                        setType('all');
-                    }}
-                >Cancel</button>
+                <div className="buttonContainer">
+                    <button
+                        className="submit"
+                        onClick={() => {
+                            console.log(input);
+                            console.log(type);
+                        }}
+                    >Submit</button>
+                </div>
             </div>}
         </div>
     )
