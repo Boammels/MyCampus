@@ -12,23 +12,22 @@ CORS(APP)
 building_list = initialize()
 
 
-#@APP.route('/echo/post/', methods = ['GET'])
-#def echo2():
-#    message = request.args.get('message')
-#    message = echo_upper(message)
-#    return dumps({
-#        'echo' : message,
-#    })
+@APP.route('/echo/post/', methods = ['GET'])
+def echo2():
+    message = request.args.get('message')
+    message = message.upper()
+    return dumps({
+        'echo' : message,
+    })
 
-@APP.route('/building/searchName/', methods = ['GET'])
+@APP.route('/building/search/', methods = ['GET'])
 def search_by_name ():
-    name = request.args.get('name')
-    return dumps(query_buildings(building_list, name = name))
-
-@APP.route('/building/searchFacility/', methods = ['GET'])
-def search_by_facility ():
+    name = request.args.get('buildingName')
+    name = None if name == '' else name.lower()
     facility_type = request.args.get('facilityType')
-    return dumps(query_buildings(building_list, fac_type = facility_type))
+    if facility_type == 'none':
+        facility_type = None
+    return dumps(query_buildings(building_list, name, facility_type))
 
 @APP.route('/building/details/', methods = ['GET'])
 def building_details ():
@@ -38,7 +37,12 @@ def building_details ():
 @APP.route('/facility/details/', methods = ['GET'])
 def facility_details():
     facility_id = request.args.get('facilityId')
+    print(facility_id)
     return dumps(query_facility(building_list, facility_id))
+
+
+
+
 
 if __name__ == "__main__":
     port = sys.argv[1] if len(sys.argv) > 1 else 5000

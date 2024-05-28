@@ -33,5 +33,5 @@ for building in b_list.building_list:
     print("BUILDING:", building.building_id, building.english_name, building.chinese_name,
           building.position_description,
           building.abbreviation, building.coordinate)
-    for fac in building.facility:
+    for fac in building.facilities:
         print("\tFACILITY:", fac.facility_id, fac.fac_type, fac.english_name, fac.description)
