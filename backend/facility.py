@@ -1,6 +1,9 @@
 
+import math
+
+
 class Facility:
-    def __init__(self, facility_id, english_name, building_name, position, description, opening_hours, chinese_name, abbreviation,
+    def __init__(self, facility_id, english_name, building_name, position, description, opening_hours, image_link, link,
                  fac_type):
         self.facility_id = facility_id
         self.english_name = english_name
@@ -8,8 +11,8 @@ class Facility:
         self.position = position
         self.description = description
         self.opening_hours = opening_hours
-        self.chinese_name = chinese_name
-        self.abbreviation = abbreviation
+        self.image_link = image_link
+        self.link = link
         self.fac_type = fac_type
 
     def match_type (self, fac_type):
@@ -22,6 +25,21 @@ class Facility:
             'name': self.english_name,
             'fac_type': self.fac_type,
             'link': '/facility/' + str(self.facility_id),
+        }
+
+    def to_details (self, building_list) :
+        id = building_list.get_building_id(self.building_name)
+        return {
+            'id': self.facility_id,
+            'name': self.english_name,
+            'building_name': self.building_name,
+            'facType': self.fac_type,
+            'position': self.position,
+            'linke': self.link,
+            'openingHours': self.opening_hours,
+            'description': self.description,
+            'imageLink': self.image_link,
+            'buildingId': id
         }
 
 

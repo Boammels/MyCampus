@@ -16,7 +16,7 @@ def initialize():
         for fac_row in fac_df[fac_df['Building'] == row.EnglishName].itertuples():
             facility = Facility(fac_row.Index, fac_row.EnglishName, fac_row.Building, fac_row.Position,
                                 fac_row.Description,
-                                fac_row.OpeningHours, fac_row.ChineseName, fac_row.Abbreviation, fac_row.Type)
+                                fac_row.OpeningHours, fac_row.image_link, fac_row.Link, fac_row.Type)
             facilities.append(facility)
 
         building = Building(row.Index, row.EnglishName, row.ChineseName, row.Coordinate, row.PositionDescription,

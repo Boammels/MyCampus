@@ -25,15 +25,18 @@ class Building:
             'id': self.building_id,
             'name': self.english_name,
             'lat': float(lat),
-            'lng': float(lon),
+            'lng': float(lon)
         }
 
     def to_class (self) :
+        lat = self.coordinate.split(', ')[0]
+        lon = self.coordinate.split(', ')[1]
         facilities = {
             'Classroom' : [],
             'Library': [],
             'Canteen': [],
             'Retail': [],
+            'Printer': [],
             'Water Station': []
         }
         facility_list = []
@@ -49,6 +52,8 @@ class Building:
             'id': self.building_id,
             'name': self.english_name,
             'abbreviation': self.abbreviation,
-            'facilities': facility_list
+            'facilities': facility_list,
+            'lat': float(lat),
+            'lng': float(lon)
         }
 
