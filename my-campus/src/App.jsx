@@ -4,6 +4,7 @@ import './App.css';
 
 
 import Main from './pages/Main'
+import Submain from './pages/Submain'
 import Building from './pages/Building'
 import Facility from './pages/Facility'
 
@@ -24,6 +25,7 @@ function App() {
             <BrowserRouter>
                 <Routes>
                     <Route path="/" element={<Main />} />
+                    <Route path="/:buildingId" element={<Submain />} />
                     <Route path="/building/:buildingId/" element={<Building />} />
                     <Route path="/facility/:facilityId/" element={<Facility />} />
                 </Routes>

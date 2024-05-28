@@ -1,7 +1,7 @@
 .home {
     z-index: 4;
     position: sticky;
-    top:30px;
+    top: 30px;
     left: 20px;
     height: 40px;
     width: 40px;
@@ -94,6 +94,33 @@ h1 {
 
 .expand {
     float: right;
+}
+
+.picture {
+    width: 100vw
+}
+
+.inlineIcon {
+    position: relative;
+    top: 5px;
+    font-size: small;
+}
+
+.details {
+    margin-left: 50px;
+    margin-right: 50px;
+    font-size: 12px;
+    width: calc(100%-100px);
+}
+
+h2 {
+    margin-top: 40px;
+    margin-left: 40px;
+}
+
+.description {
+    font-size: 20px;
+    padding-top: 20px;
 }
 
 
