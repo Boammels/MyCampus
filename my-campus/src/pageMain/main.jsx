@@ -4,8 +4,28 @@ import "./component.css";
 
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
+import GoogleMap from './map'
+import SideBar from './bar'
 
-const Search = () => {
+
+
+const Main = () => {
+    const [markers, setMarkers] = React.useState([])
+    return (
+        <div>
+        <div>
+            <div className='black'></div>
+                <SideBar token='' />
+                <Search func={setMarkers}/>
+            </div>
+            <div>
+                <GoogleMap markers = {markers}/>
+            </div>
+        </div>
+    )
+}
+
+const Search = ({setMarkers}) => {
     const facility_types = ['Canteen', 'Classroom', 'Retail', 'Printer', 'Library', 'Water refill']
 
     const [input, setInput] = React.useState('');
@@ -31,7 +51,6 @@ const Search = () => {
                     onClick={() => {
                         setDisplay(false);
                         setInput('');
-                        setType('all');
                     }}
                 ><CloseIcon /></button>
                 <p>Enter Building Name:</p>
@@ -68,6 +87,7 @@ const Search = () => {
                         onClick={() => {
                             console.log(input);
                             console.log(type);
+                            setMarkers(['abc', 'bcd'])
                         }}
                     >Submit</button>
                 </div>
@@ -76,4 +96,4 @@ const Search = () => {
     )
 }
 
-export default Search;
+export default Main;

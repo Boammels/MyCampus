@@ -2,9 +2,8 @@ import React from 'react';
 
 import './App.css';
 
-import GoogleMap from './component/map'
-import SideBar from './component/bar'
-import Search from './component/search'
+
+import Main from './pageMain/main'
 
 import {
   BrowserRouter,
@@ -23,21 +22,6 @@ function App() {
             </BrowserRouter>
         </body>
     );
-}
-
-const Main = () => {
-    return (
-        <div>
-        <div>
-            <div className='black'></div>
-                <SideBar token='' />
-                <Search />
-            </div>
-            <div>
-                <GoogleMap/>
-            </div>
-        </div>
-    )
 }
 
 export default App;

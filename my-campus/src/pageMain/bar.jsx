@@ -23,7 +23,7 @@ const SideBar = ({token}) => {
                 className="barOpen"
                 style = {{ left: left }}
                 onClick={() => {
-                    if (display == false) {
+                    if (display === false) {
                         setDisplay(true);
                         setLeft('71%');
                     } else {
@@ -58,10 +58,10 @@ const SideBar = ({token}) => {
                 </div>
                 <div className='menu'>
                     <li className="timetableSelection">
-                        <a>Timetable</a>
+                        <a href="/timetable">Timetable</a>
                     </li>
                     <li className="friendSelection">
-                        <a>Friends</a>
+                        <a href="/friends">Friends</a>
                     </li>
                 </div>
             </div>}
