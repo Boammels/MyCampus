@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./component.css";
+import "../styles/main.css";
 
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import MenuOpenOutlinedIcon from '@mui/icons-material/MenuOpenOutlined';
@@ -19,6 +19,7 @@ const SideBar = ({token}) => {
     return (
         <div>
             {display && <div className='blackback' ></div>}
+            
             <div
                 className="barOpen"
                 style = {{ left: left }}

@@ -1,37 +1,42 @@
 import React from "react";
-
-import "./component.css";
+import axios from 'axios';
 
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
-import GoogleMap from './map'
-import SideBar from './bar'
 
-
-
-const Main = () => {
-    const [markers, setMarkers] = React.useState([])
-    return (
-        <div>
-        <div>
-            <div className='black'></div>
-                <SideBar token='' />
-                <Search func={setMarkers}/>
-            </div>
-            <div>
-                <GoogleMap markers = {markers}/>
-            </div>
-        </div>
-    )
-}
+import "../styles/main.css";
 
 const Search = ({setMarkers}) => {
-    const facility_types = ['Canteen', 'Classroom', 'Retail', 'Printer', 'Library', 'Water refill']
+    const facility_types = ['Canteen', 'Classroom', 'Retail', 'Printer', 'Library', 'Water Station']
 
     const [input, setInput] = React.useState('');
 
     const [display, setDisplay] = React.useState(false);
-    const [type, setType] = React.useState('all');
+    const [type, setType] = React.useState('none');
+
+    const searchBuilding = async () => {
+        if (type === 'none' && input === '') {
+            alert("Please input filters");
+            return;
+        }
+        axios.get('http://127.0.0.1:5000/building/search/',
+            { 
+              params : {
+                'facilityType': type,
+                'buildingName': input
+              }
+            }).then(({ data }) => {
+                console.log(data);
+                setMarkers(data);
+                setDisplay(false);
+                setInput('');
+                setType('none');
+            }
+          )
+          .catch((err) => {
+            alert(err.message);
+          });
+    }
     return (
         <div>
             {display && <div className='blackback2' ></div>}
@@ -59,9 +64,9 @@ const Search = ({setMarkers}) => {
                 }} />
                 <p>Please select a facility type</p>
                 <div className="container">
-                    {facility_types.map((item, index)=>{
+                    {facility_types.map((item)=>{
                         return (
-                            <div className="item">
+                            <div className="facItem">
                                 <input
                                     type='checkbox'
                                     className='checkbox'
@@ -71,9 +76,8 @@ const Search = ({setMarkers}) => {
                                         if (type !== item) {
                                             setType(item)
                                         } else {
-                                            setType('all')
+                                            setType('none')
                                         }
-                                        console.log(type);
                                     }}
                                 />
                                 <d>{item}</d>
@@ -87,7 +91,7 @@ const Search = ({setMarkers}) => {
                         onClick={() => {
                             console.log(input);
                             console.log(type);
-                            setMarkers(['abc', 'bcd'])
+                            searchBuilding();
                         }}
                     >Submit</button>
                 </div>
@@ -96,4 +100,4 @@ const Search = ({setMarkers}) => {
     )
 }
 
-export default Main;
+export default Search;
