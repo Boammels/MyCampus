@@ -8,11 +8,10 @@ import "../styles/main.css";
 const GoogleMap = ({markers}) => {
     //var markers = localStorage.getItem("markers");
     console.log (markers);
-
     const defaultProps = {
         center: {
-          lat: 22.284088415140076, 
-          lng: 114.13783807148307 
+          lat: 22.28308696960911, 
+          lng: 114.1365613399597 
         },
         zoom: 11
       };

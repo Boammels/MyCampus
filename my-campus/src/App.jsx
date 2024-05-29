@@ -7,6 +7,7 @@ import Main from './pages/Main'
 import Submain from './pages/Submain'
 import Building from './pages/Building'
 import Facility from './pages/Facility'
+import Class from './pages/Class'
 
 import {
   BrowserRouter,
@@ -28,6 +29,7 @@ function App() {
                     <Route path="/:buildingId" element={<Submain />} />
                     <Route path="/building/:buildingId/" element={<Building />} />
                     <Route path="/facility/:facilityId/" element={<Facility />} />
+                    <Route path="/class/:classId/" element={<Class />} />
                 </Routes>
             </BrowserRouter>
         </body>

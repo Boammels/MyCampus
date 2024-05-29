@@ -4,10 +4,13 @@ import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { useNavigate } from 'react-router-dom';
 
-const ExpansionList = ({item}) => {
+const ExpansionList = ({ item, type }) => {
     const [show, setShow] = React.useState(false);
     return (<div>
-        {item.entities.length > 0 && <div className='collection'>
+        {item.entities.length > 0 && <div 
+            className='collection'
+            onClick={() => setShow(!show)}
+        >
             <h3
                 style={{display: 'inline'}}
             >{item.name}</h3>
@@ -22,25 +25,40 @@ const ExpansionList = ({item}) => {
         </div>}
         {item.entities.length > 0  && <div className='itemList'>
             {show && item.entities.map(
-                entity => <ListItem entity={entity}></ListItem>
+                entity => <ListItem entity={entity} type={type}></ListItem>
             )}
         </div>}
     </div>)
 }
 
-const ListItem = ({entity}) => {
+const ListItem = ({entity, type}) => {
     const navigate = useNavigate();
-    return (
-        <div 
-            className='item'
-            onClick={() => navigate(entity.link)}
-        >
-            <span>{entity.name}</span>
-            <span
-                className='expand'
-            >{<KeyboardArrowRightIcon/>}</span>
-        </div>
-    )
+    if (type === 'facility') {
+        return (
+            <div 
+                className='item'
+                onClick={() => navigate(entity.link)}
+            >
+                <span>{entity.name}</span>
+                <span
+                    className='expand'
+                >{<KeyboardArrowRightIcon/>}</span>
+            </div>
+        )
+    } else if (type === 'class') {
+        return (
+            <div 
+                className='item'
+                onClick={() => navigate(entity.link)}
+            >
+                <span>{entity.name}</span>
+                <span
+                    className='expand'
+                >{<KeyboardArrowRightIcon/>}</span>
+            </div>
+        )
+    }
+    
 }
 
 
