@@ -6,27 +6,6 @@
     margin-top: 150px;;
 }
 
-.home {
-
-    z-index: 4;
-    position: fixed;
-    top: 30px;
-    left: 80px;
-    height: 40px;
-    width: 40px;
-    background-color: #047701;
-    color: white;
-    border-radius: 10px;
-    border-color: #047701;
-    box-shadow: none;
-}
-
-.home:hover {
-    background-color: #035300;
-    border-color: #035300;
-    color: rgb(170,170,170);
-}
-
 .backIcon {
     position: absolute;
     top: 8px;
@@ -53,7 +32,56 @@
     color: rgb(170,170,170);
 }
 
+.home {
+
+    z-index: 4;
+    position: fixed;
+    top: 30px;
+    left: 80px;
+    height: 40px;
+    width: 40px;
+    background-color: #047701;
+    color: white;
+    border-radius: 10px;
+    border-color: #047701;
+    box-shadow: none;
+}
+
+.home:hover {
+    background-color: #035300;
+    border-color: #035300;
+    color: rgb(170,170,170);
+}
+
 .homeIcon {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+}
+
+
+.location {
+
+    z-index: 4;
+    position: fixed;
+    top: 30px;
+    left: 140px;
+    height: 40px;
+    width: 40px;
+    background-color: #047701;
+    color: white;
+    border-radius: 10px;
+    border-color: #047701;
+    box-shadow: none;
+}
+
+.locaton:hover {
+    background-color: #035300;
+    border-color: #035300;
+    color: rgb(170,170,170);
+}
+
+.locIcon {
     position: absolute;
     top: 8px;
     right: 8px;
@@ -191,28 +219,49 @@ h2 {
     width: calc(100%-60px);
 }
 
-.moodleIcon {
-    height: 24px;
-    width: 24px;
-    transform: translate(-3px,5px);
+.buttonArea {
+    text-align: center;
+    top: 30px;
+    left: 20px;
+    z-index: 4;
+    margin-top: 150px;;
 }
 
-.moodleButton {
+.outlinkIcon {
+    transform: translate(0,5px);
+}
+
+.outlinkButton {
     margin: auto;;
     vertical-align: middle;
     font-size: 20px;
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-weight: bolder;
-    color: white;
-    background-color: #ff9100;
-    border-color:#ffbf6c;
     border-radius: 5px;
     width: 60%;
     padding-top: 3px;
     padding-bottom: 10px;
     max-width: 500px;
 }
+#moodle {
+    color: white;
+    background-color: #ff9100;
+    border-color:#ffbf6c;
+}
 
+#moodle:active {
+    background-color: #926224;
+}
+
+#booking {
+    color: white;
+    background-color: #047701;
+    border-color:#047701;
+}
+
+#booking:active {
+    background-color: #035300;
+}
 
 
 

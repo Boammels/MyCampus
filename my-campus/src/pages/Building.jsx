@@ -7,6 +7,7 @@ import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 
 import ExpansionList from "../components/ExpansionList";
 import buildingPic from "../icons/office-building.png"
+import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 
 import "../styles/info.css"
 
@@ -54,7 +55,10 @@ const Building = ()=>{
             className="home"
             onClick={() => navigate('/')}
         ><HomeIcon className="homeIcon"/></div>
-        
+        <div
+            className="location"
+            onClick={() => navigate('/map/'+id)}
+        ><LocationOnOutlinedIcon className="locIcon"/></div>
         <div className='majorArea'>
             <div className="icon-container">
                 <img className="icon" src={buildingPic} alt="building icon"/>

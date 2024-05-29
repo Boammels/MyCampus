@@ -49,40 +49,35 @@
     height: 100px;
 }
 
-.profile {
-    height: 50px;
-    width: 50px;
-    border-radius: 30px;
-    background-color: black;
-    margin-left: 0;
-    margin-bottom: 10px;
-    text-align: center;
-    vertical-align: middle;
-}
-
 .userNameSec {
     padding: 20px;
     padding-left: 0px;
+    margin-bottom: 10px;
     text-align: center;
     display: flex;
 }
 
 .profilePhoto {
-    margin: 13px;
-    background-color: black;
+    height: 80px;
     font-size: large;
     color: white;
 }
 
 .userName {
+    position: relative;
+    top:6px;
     display: inline;
+    font-size: 25px;
+    font-weight: 700;
 }
 
 .loginIcon {
+    font-size: 30px;
     margin: 10px;
     position: absolute;
     display: inline;
     transform: translate(1px, -5px);
+    
 }
 
 .blackback {
@@ -95,13 +90,14 @@
 }
 
 .menu {
-    margin-top: 20px;
+    margin-top: 80px;
     width: 100%
 }
 
 .timetableSelection {
+    margin-top: 20px;
     border-width: 0px;
-    padding-top: 20px;
+    padding-top: 15px;
     padding-bottom: 20px;
     border-top-width: 1px;
     border-color: black;
@@ -112,7 +108,7 @@
 }
 
 .friendSelection {
-    padding-top: 20px;
+    padding-top: 15px;
     padding-bottom: 20px;
     border-width: 0px;
     border-top-width: 1px;
@@ -122,6 +118,10 @@
     padding-left: 30px;
     background-color: #d9d9d9;
     font-size: 20px;
+}
+
+.listIcon {
+    transform: translate(0, 5px);
 }
 
 /* Search Panel Part*/

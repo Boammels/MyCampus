@@ -36,7 +36,7 @@ const Submain = () => {
                 <Search setMarkers={setMarkers}/>
             </div>
             <div>
-                <GoogleMap markers = {markers}/>
+                <GoogleMap markers = {markers} />
             </div>
         </div>
     )

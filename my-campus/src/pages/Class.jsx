@@ -7,6 +7,7 @@ import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
 import LocationCityIcon from '@mui/icons-material/LocationCity';
 import MeetingRoomOutlinedIcon from '@mui/icons-material/MeetingRoomOutlined';
+import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 
 import lecturePic from "../icons/lecture.png"
 import moodlePic from "../icons/education.png"
@@ -74,7 +75,7 @@ const Class = () => {
                     <AccessTimeOutlinedIcon className='inlineIcon'/> {data.classTime}
                 </p>
                 <div className="buttonArea">
-                    <button className='moodleButton'><img src={moodlePic} className="moodleIcon" />Open in moodle</button>
+                    <button className='outlinkButton' id='moodle'><SchoolOutlinedIcon className="outlinkIcon" /> Open in moodle</button>
                 </div>
             </div>}
         </div>

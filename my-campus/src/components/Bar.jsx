@@ -4,12 +4,16 @@ import "../styles/main.css";
 
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
 import MenuOpenOutlinedIcon from '@mui/icons-material/MenuOpenOutlined';
-import PersonIcon from '@mui/icons-material/Person';
+import EventNoteOutlinedIcon from '@mui/icons-material/EventNoteOutlined';
 import LoginOutlinedIcon from '@mui/icons-material/LoginOutlined';
 import LogoutIcon from '@mui/icons-material/Logout';
+import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
+import userPic from '../icons/profile.png'
+import { useNavigate } from "react-router-dom";
 
 const SideBar = ({token}) => {
 
+    const navigate = useNavigate();
     const [display, setDisplay] = React.useState(false);
     const [left, setLeft] = React.useState('20px');
     const [loggedIn, setLoggedIn] = React.useState(false);
@@ -37,17 +41,15 @@ const SideBar = ({token}) => {
             </div>
             {display && <div className='SideBar'>
                 <div className="userSec">
-                    <div
-                        className='profile'
-                    ><PersonIcon style={{font_size: 'large'}} className='profilePhoto'/></div>
-                    {!loggedIn && <h2
+                    <img src={userPic} className='profilePhoto'/>
+                    {!loggedIn && <p
                         onClick = {() => {setLoggedIn(true);}}
                         className='userNamesec'
                     >
                         <div className='userName'>Login</div>
                         <div className='loginIcon'><LoginOutlinedIcon /></div>
-                    </h2>}
-                    {loggedIn && <h2
+                    </p>}
+                    {loggedIn && <p
                         className='userNamesec'
                     >
                         <div className='userName'>Sihang</div>
@@ -55,15 +57,19 @@ const SideBar = ({token}) => {
                             className='loginIcon'
                             onClick = {() => {setLoggedIn(false);}}
                         ><LogoutIcon /></div>
-                    </h2>}
+                    </p>}
                 </div>
                 <div className='menu'>
-                    <li className="timetableSelection">
-                        <a href="/timetable">Timetable</a>
-                    </li>
-                    <li className="friendSelection">
-                        <a href="/friends">Friends</a>
-                    </li>
+                    <div className="timetableSelection">
+                        <span onClick={() => navigate('/timetable')}>
+                            <EventNoteOutlinedIcon className='listIcon'/> Timetable
+                        </span>
+                    </div>
+                    <div className="friendSelection">
+                        <span onClick={() => navigate('/friends')}>
+                            <PeopleAltOutlinedIcon className='listIcon'/> Friends
+                        </span>
+                    </div>
                 </div>
             </div>}
         </div>

@@ -7,6 +7,7 @@ import LocationOnOutlinedIcon from '@mui/icons-material/LocationOnOutlined';
 import AccessTimeOutlinedIcon from '@mui/icons-material/AccessTimeOutlined';
 import OpenInNewOutlinedIcon from '@mui/icons-material/OpenInNewOutlined';
 import KeyboardBackspaceIcon from '@mui/icons-material/KeyboardBackspace';
+import BookmarkAddedOutlinedIcon from '@mui/icons-material/BookmarkAddedOutlined';
 import ExpansionList from "../components/ExpansionList";
 import faucetPic from "../icons/faucet.png"
 import lecturePic from "../icons/classroom.png"
@@ -81,7 +82,7 @@ const Facility = ()=>{
             {success && <div className="info">
                 <h1>{data.name}</h1>
                 <p
-                    onClick={() => navigate('/'+data.buildingId)}
+                    onClick={() => navigate('/map/'+data.buildingId)}
                     className='details'
                 >
                     <LocationOnOutlinedIcon className='inlineIcon'/> {data.position}
@@ -107,6 +108,9 @@ const Facility = ()=>{
                     }
                 </div>}
                 {type === "Classroom" && data.imageLink === 'none' && <div className="whiteSpace"></div>}
+                {type === 'Library' && <div className="buttonArea">
+                    <button className='outlinkButton' id='booking'><BookmarkAddedOutlinedIcon className="outlinkIcon" /> Book a space</button>
+                </div>}
                 {data.imageLink !== 'none' && 
                     <div>
                         <p className="section">Photo</p>
