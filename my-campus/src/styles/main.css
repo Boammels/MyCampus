@@ -185,6 +185,7 @@
 }
 
 .container {
+    margin-top: 30px;
     display: grid;
     grid-template-columns: calc(100%/2) calc(100%/2);
     grid-template-rows: 50px 50px 50px;
@@ -199,6 +200,8 @@
 .textInput {
     width: calc(100% - 20px);
     margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
     height: 30px;
     border-radius: 8px;
     border-style: solid;

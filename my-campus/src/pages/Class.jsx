@@ -10,7 +10,6 @@ import MeetingRoomOutlinedIcon from '@mui/icons-material/MeetingRoomOutlined';
 import SchoolOutlinedIcon from '@mui/icons-material/SchoolOutlined';
 
 import lecturePic from "../icons/lecture.png"
-import moodlePic from "../icons/education.png"
 
 import "../styles/info.css"
 
