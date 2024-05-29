@@ -3,14 +3,12 @@ import sys
 from json import dumps
 from flask_cors import CORS
 from flask import Flask, request
-from initialize import initialize
-from query_service import *
+from classes.systemEngine import *
 
 APP = Flask(__name__)
 CORS(APP)
 
-building_list = initialize()
-
+building_list, class_list = initialize()
 
 @APP.route('/echo/post/', methods = ['GET'])
 def echo2():
@@ -38,11 +36,12 @@ def building_details ():
 def facility_details():
     facility_id = request.args.get('facilityId')
     print(facility_id)
-    return dumps(query_facility(building_list, facility_id))
+    return dumps(query_facility(building_list, class_list, facility_id))
 
-
-
-
+@APP.route('/class/details/', methods = ['GET'])
+def class_details():
+    class_id = request.args.get('classId')
+    return dumps(query_class(building_list, class_list, class_id))
 
 if __name__ == "__main__":
     port = sys.argv[1] if len(sys.argv) > 1 else 5000
