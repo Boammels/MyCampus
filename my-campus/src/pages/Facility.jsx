@@ -111,11 +111,10 @@ const Facility = ()=>{
                 {type === 'Library' && <div className="buttonArea">
                     <button className='outlinkButton' id='booking'><BookmarkAddedOutlinedIcon className="outlinkIcon" /> Book a space</button>
                 </div>}
-                {data.imageLink !== 'none' && 
-                    <div>
-                        <p className="section">Photo</p>
-                        <img src={data.imageLink} className="picture"/>
-                    </div>}
+                {data.imageLink !== 'none' && <div>
+                    <p className="section">Photo</p>
+                    <img src={data.imageLink} className="picture"/>
+                </div>}
             </div>}
         </div>
     </>)

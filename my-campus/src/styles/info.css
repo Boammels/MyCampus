@@ -263,6 +263,12 @@ h2 {
     background-color: #035300;
 }
 
+.empty {
+    color:rgb(170,170,170);
+    font-style: italic;
+    font-size: 12;
+}
+
 
 
 

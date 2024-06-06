@@ -22,20 +22,23 @@ function App() {
     let json = require('./path.json');
     console.log(json.path);
     localStorage.setItem("apiPath", json.path);
-    localStorage.setItem("markers", [])
+    localStorage.setItem("markers", []);
+    const [id, setId] = React.useState("");
     return (
         <body>
-            <BrowserRouter>
-                <Routes>
-                    <Route path="/" element={<Main />} />
-                    <Route path="/timetable/" element={<Timetable />} />
-                    <Route path="/friends/" element={<Friends />} />
-                    <Route path="/map/:buildingId" element={<Submain />} />
-                    <Route path="/building/:buildingId/" element={<Building />} />
-                    <Route path="/facility/:facilityId/" element={<Facility />} />
-                    <Route path="/class/:classId/" element={<Class />} />
-                </Routes>
-            </BrowserRouter>
+            <div className='mainmain'>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<Main id={id} setId={setId} />} />
+                        <Route path="/timetable/:studentId" element={<Timetable token={id}/>} />
+                        <Route path="/friends/" element={<Friends />} />
+                        <Route path="/map/:buildingId" element={<Submain id={id} setId={setId} />} />
+                        <Route path="/building/:buildingId/" element={<Building />} />
+                        <Route path="/facility/:facilityId/" element={<Facility />} />
+                        <Route path="/class/:classId/" element={<Class />} />
+                    </Routes>
+                </BrowserRouter>
+            </div>
         </body>
     );
 }

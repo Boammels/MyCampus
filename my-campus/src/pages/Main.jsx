@@ -7,13 +7,13 @@ import SideBar from '../components/Bar'
 import "../styles/main.css";
 
 
-const Main = () => {
+const Main = ( {id, setId} ) => {
     const [markers, setMarkers] = React.useState([])
     return (
         <div>
         <div>
             <div className='black'></div>
-                <SideBar token='' />
+                <SideBar token={id} setId={setId} />
                 <Search setMarkers={setMarkers}/>
             </div>
             <div>

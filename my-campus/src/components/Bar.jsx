@@ -11,15 +11,12 @@ import PeopleAltOutlinedIcon from '@mui/icons-material/PeopleAltOutlined';
 import userPic from '../icons/profile.png'
 import { useNavigate } from "react-router-dom";
 
-const SideBar = ({token}) => {
+const SideBar = ({token, setId}) => {
 
     const navigate = useNavigate();
     const [display, setDisplay] = React.useState(false);
     const [left, setLeft] = React.useState('20px');
-    const [loggedIn, setLoggedIn] = React.useState(false);
-    if (token !== '') {
-        setLoggedIn(true);
-    }
+
     return (
         <div>
             {display && <div className='blackback' ></div>}
@@ -42,26 +39,38 @@ const SideBar = ({token}) => {
             {display && <div className='SideBar'>
                 <div className="userSec">
                     <img src={userPic} className='profilePhoto'/>
-                    {!loggedIn && <p
-                        onClick = {() => {setLoggedIn(true);}}
+                    {token === '' && <p
+                        onClick = {() => {
+
+                            setId('3036195772');
+                        }}
                         className='userNamesec'
                     >
                         <div className='userName'>Login</div>
                         <div className='loginIcon'><LoginOutlinedIcon /></div>
                     </p>}
-                    {loggedIn && <p
+                    {token !== '' && <p
                         className='userNamesec'
                     >
                         <div className='userName'>Sihang</div>
                         <div
                             className='loginIcon'
-                            onClick = {() => {setLoggedIn(false);}}
+                            onClick = {() => {
+
+                                setId('');
+                            }}
                         ><LogoutIcon /></div>
                     </p>}
                 </div>
                 <div className='menu'>
                     <div className="timetableSelection">
-                        <span onClick={() => navigate('/timetable')}>
+                        <span onClick={() => {
+                            if (token === '') {
+                                alert("you have to login first");
+                            } else {
+                                navigate('/timetable/'+token);
+                            }
+                        }}>
                             <EventNoteOutlinedIcon className='listIcon'/> Timetable
                         </span>
                     </div>
