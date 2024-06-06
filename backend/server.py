@@ -8,7 +8,9 @@ from classes.systemEngine import *
 APP = Flask(__name__)
 CORS(APP)
 
-building_list, class_list = initialize()
+building_list, class_list, student_list, event_list, reservation_list = initialize()
+
+print(get_timetable('3036195772', student_list, event_list, class_list, reservation_list))
 
 @APP.route('/echo/post/', methods = ['GET'])
 def echo2():
@@ -42,6 +44,17 @@ def facility_details():
 def class_details():
     class_id = request.args.get('classId')
     return dumps(query_class(building_list, class_list, class_id))
+
+@APP.route('/timetable/', methods = ['GET'])
+def timetable():
+    student_id = request.args.get('studentId')
+    return dumps(get_timetable(student_id, student_list, event_list, class_list, reservation_list))
+
+@APP.route('/login/', methods = ['POST'])
+def login():
+    return dumps({
+        "result": True
+    })
 
 if __name__ == "__main__":
     port = sys.argv[1] if len(sys.argv) > 1 else 5000

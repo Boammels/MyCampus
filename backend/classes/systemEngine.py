@@ -4,17 +4,19 @@ from classes.buildingList import Building_list
 from classes.building import Building
 from classes.classObject import ClassObj
 from classes.facility import Facility
+from classes.student import Student
+from classes.event import Event
+from classes.reservation import Reservation
 
-# data input and initialization
-def initialize():
-    # data input for building and facility
+# data input for building and facility
+def input_buildings ():
     df_building = pd.read_excel("data_buildings.xlsx")
     df_building.dropna(axis=0, how='any', inplace=True)
     fac_df = pd.read_excel("data_facilities.xlsx")
     # record all buildings into a list
     building_list = []
     for row in df_building.itertuples():
-        print(row.Index)
+        #print(row.Index)
         facilities = []
         # recording all facilities belongs to the building into a list
         for fac_row in fac_df[fac_df['BuildingId'] == row.Index].itertuples():
@@ -27,6 +29,9 @@ def initialize():
         building = Building(row.Index, row.EnglishName, row.ChineseName, row.Coordinate, row.PositionDescription,
                             row.Abbreviation, row.Description, facilities)
         building_list.append(building)
+    return Building_list(building_list)
+
+def input_classes ():
     # data input for class
     df_classes = pd.read_csv("data_classes.csv")
     # record all classes into a list
@@ -35,7 +40,46 @@ def initialize():
         # create a class object based on the information and append to list
         classobj = ClassObj(classItem.Index,classItem.className,classItem.classroomId,classItem.day,classItem.startTime,classItem.endTime)
         classes.append(classobj)
-    return Building_list(building_list), classes
+    return classes
+    
+def input_students ():
+    df_students = pd.read_csv("data_students.csv")
+    # record all classes into a list
+    students = []
+    for studentItem in df_students.itertuples():
+        # create a class object based on the information and append to list
+        student = Student(studentItem.Index, studentItem.name, studentItem.studentId)
+        students.append(student)
+    return students
+
+def input_events ():
+    df_events = pd.read_csv("data_events.csv")
+    # record all classes into a list
+    events = []
+    for eventItem in df_events.itertuples():
+        # create a class object based on the information and append to list
+        event = Event(eventItem.Index, eventItem.type, eventItem.outerId, eventItem.participant)
+        events.append(event)
+    return events
+
+def input_reservations ():
+    df_reservations = pd.read_csv("data_reservations.csv")
+    # record all classes into a list
+    reservations = []
+    for reservationItem in df_reservations.itertuples():
+        # create a class object based on the information and append to list
+        reservation = Reservation(reservationItem.Index, reservationItem.facilityId, reservationItem.room, reservationItem.day, reservationItem.startTime,reservationItem.endTime,reservationItem.by)
+        reservations.append(reservation)
+    return reservations
+
+# data input and initialization
+def initialize():
+    buildings = input_buildings()
+    classes = input_classes()
+    students = input_students()
+    events = input_events()
+    reservations = input_reservations()
+    return buildings, classes, students, events, reservations
 
 # query buildings based on their name (abbreviation) or facilities
 def query_buildings(building_list, name, fac_type):
@@ -93,4 +137,13 @@ def query_class(building_list, class_list, class_id):
         if classobj.match_id(int(class_id)):
             return classobj.to_details(building_list)
     return None
+def get_timetable(student_id, students, events, classes, reservations):
+    
+    for student in students:
+        if str(student.student_id) == student_id:
+            student_information = {
+                'name' : student.name,
+                'timetable': student.get_student_timetable(events, classes, reservations)
+            }
+            return student_information
 

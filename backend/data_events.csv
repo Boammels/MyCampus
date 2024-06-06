@@ -1,0 +1,7 @@
+type,outerId,participant
+class,1,3036195772
+class,1,3031234567
+class,0,3036195772
+reservation,0,3036195772
+class,0,3037654321
+reservation,1,3036195772
