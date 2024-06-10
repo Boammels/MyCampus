@@ -11,20 +11,22 @@ const ExpansionList = ({ item, type }) => {
     return (<div>
 
         {type === "timetable" && <div 
-            className='collection'
-            onClick={() => setShow(!show)}
+            className={item.entities.length > 0 ? 'collection' : 'collectionEmpty'}
+            onClick={item.entities.length > 0 ? () => setShow(!show) : null}
         >
             <h3
                 style={{display: 'inline'}}
-            >{item.name}</h3>
-            {!show && <span
-                className='expand'
-                onClick={() => setShow(true)}
-            ><KeyboardArrowRightIcon/></span>}
-            {show && <span
-                className='expand'
-                onClick={() => setShow(false)}
-            ><KeyboardArrowDownIcon/></span>}
+            >{item.name}</h3>{
+                item.entities.length > 0 && <>{!show && <span
+                    className='expand'
+                    onClick={() => setShow(true)}
+                ><KeyboardArrowRightIcon/></span>}
+                {show && <span
+                    className='expand'
+                    onClick={() => setShow(false)}
+                ><KeyboardArrowDownIcon/></span>}</>
+            }
+            
         </div>}
         {type === "timetable"  && <div className='itemList'>
             {show && item.entities.map(

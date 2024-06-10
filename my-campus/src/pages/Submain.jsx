@@ -9,7 +9,7 @@ import SideBar from '../components/Bar'
 import "../styles/main.css";
 
 
-const Submain = ( {id, setId} ) => {
+const Submain = ( {id, setId, name, setName} ) => {
     const bid = useParams().buildingId;
     const [markers, setMarkers] = React.useState([]);
     const searchBuilding = async () => {
@@ -32,7 +32,7 @@ const Submain = ( {id, setId} ) => {
         <div>
         <div>
             <div className='black'></div>
-                <SideBar token={id} setId={setId} />
+                <SideBar studentId={id} setId={setId} name={name} setName={setName}/>
                 <Search setMarkers={setMarkers}/>
             </div>
             <div>
