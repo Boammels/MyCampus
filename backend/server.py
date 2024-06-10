@@ -52,9 +52,18 @@ def timetable():
 
 @APP.route('/login/', methods = ['POST'])
 def login():
+    student_id = request.json['studentId']
+    res, name = check_user(student_id, student_list)
     return dumps({
-        "result": True
+        "result": res,
+        "studentId": student_id,
+        "name": name
     })
+
+
+
+
+
 
 if __name__ == "__main__":
     port = sys.argv[1] if len(sys.argv) > 1 else 5000

@@ -137,8 +137,8 @@ def query_class(building_list, class_list, class_id):
         if classobj.match_id(int(class_id)):
             return classobj.to_details(building_list)
     return None
+
 def get_timetable(student_id, students, events, classes, reservations):
-    
     for student in students:
         if str(student.student_id) == student_id:
             student_information = {
@@ -146,4 +146,10 @@ def get_timetable(student_id, students, events, classes, reservations):
                 'timetable': student.get_student_timetable(events, classes, reservations)
             }
             return student_information
+
+def check_user(student_id, students):
+    for student in students:
+        if str(student.student_id) == str(student_id):
+            return True, student.name
+    return False, " "
 
