@@ -131,6 +131,19 @@ h1 {
 }
 
 .collection {
+    background-color: #035300;
+    width: calc(100% - 22px);
+    margin: 0;
+    padding: 10px;
+    border-radius: 5px;
+    border-style: solid;
+    border-color: #035300;
+    border-width: 1px;;
+    margin-top: 10px;
+    color: white;
+}
+
+.collectionEmpty {
     background-color: rgb(170,170,170);
     width: calc(100% - 22px);
     margin: 0;
