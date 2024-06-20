@@ -1,3 +1,4 @@
+import random
 import pandas as pd
 
 from classes.buildingList import Building_list
@@ -111,6 +112,8 @@ def query_facility(building_list: Building_list, class_list, facility_id):
                 # if it is a Classroom, get all its classes
                 if res['facType'] == 'Classroom':
                     res['classes'], res['count'] = query_classes_of_classroom(class_list, facility_id)
+                if res['facType'] == 'Canteen':
+                    res['crowdness'] = random.randint(0,10)
                 return res
     return None
 
@@ -152,4 +155,18 @@ def check_user(student_id, students):
         if str(student.student_id) == str(student_id):
             return True, student.name
     return False, " "
+
+def query_reservation(building_list, reservation_list, reservation_id):
+    res = None
+    for reservation in reservation_list:
+        if int(reservation.id) == int(reservation_id):
+            res =  reservation.to_object()
+    if res != None:
+        for building in building_list.building_list:
+            for facility in building.facilities:
+                if int(facility.facility_id) == int(reservation.facility):
+                    res['building'] = building.english_name
+                    res['buildingId'] = building.building_id
+                    res['facility_name'] = facility.english_name
+    return res
 

@@ -10,8 +10,6 @@ CORS(APP)
 
 building_list, class_list, student_list, event_list, reservation_list = initialize()
 
-print(get_timetable('3036195772', student_list, event_list, class_list, reservation_list))
-
 @APP.route('/echo/post/', methods = ['GET'])
 def echo2():
     message = request.args.get('message')
@@ -37,7 +35,6 @@ def building_details ():
 @APP.route('/facility/details/', methods = ['GET'])
 def facility_details():
     facility_id = request.args.get('facilityId')
-    print(facility_id)
     return dumps(query_facility(building_list, class_list, facility_id))
 
 @APP.route('/class/details/', methods = ['GET'])
@@ -59,6 +56,17 @@ def login():
         "studentId": student_id,
         "name": name
     })
+
+@APP.route('/crowdness/', methods = ['GET'])
+def crowdness():
+    return dumps({
+        'crowdness': random.randint(0,10)
+    })
+
+@APP.route('/reservation/details/', methods = ['GET'])
+def reservation_details():
+    reservation_id = request.args.get('reservationId')
+    return dumps(query_reservation(building_list, reservation_list, reservation_id))
 
 
 
