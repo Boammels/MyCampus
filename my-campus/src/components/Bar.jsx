@@ -37,7 +37,6 @@ const SideBar = ({studentId, setId, name, setName}) => {
             navigate(-1);
           });
     }
-    
 
     return (
         <div>

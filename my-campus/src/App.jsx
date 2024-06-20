@@ -10,6 +10,7 @@ import Facility from './pages/Facility'
 import Class from './pages/Class'
 import Timetable from './pages/Timetable'
 import Friends from './pages/Friends'
+import Reservation from './pages/Reservation'
 
 import {
   BrowserRouter,
@@ -37,6 +38,7 @@ function App() {
                         <Route path="/building/:buildingId/" element={<Building />} />
                         <Route path="/facility/:facilityId/" element={<Facility />} />
                         <Route path="/class/:classId/" element={<Class />} />
+                        <Route path="/reservation/:reservationId/" element={<Reservation />} />
                     </Routes>
                 </BrowserRouter>
             </div>
