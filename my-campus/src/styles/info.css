@@ -283,5 +283,98 @@ h2 {
 }
 
 
+.friendInput {
+    width: calc(100% - 100px);
+    margin: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 20px;
+    border-radius: 8px;
+    border-style: solid;
+    border-width: 1px;
+    border-color: #047701;
+    background-color: #e8e8e8;
+    padding: 10px;
+    box-shadow: #d9d9d9;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.friendInput:focus {
+    color: #047701;
+    font-weight: 500;
+    box-shadow: 0,0,0,3px, #10e009;
+}
+
+.inputArea {
+
+    width: 90%;
+    margin: auto;
+}
+
+.searchFriend {
+    width: 78px;
+    height: 42px;
+    background-color: #035300;
+    color:#d9d9d9;
+    border-color: #047701;
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    border-width: 1px;
+}
+
+.sectionTop {
+    margin-left: 7%;
+    margin-bottom: 0;
+    color:#636363
+}
+
+.seperateLine {
+    height: 1px;
+    background-color: #636363;
+    width: 86%;
+    margin: auto;
+}
 
 
+.friendItem {
+    height: fit-content;
+    width: 87%;
+    margin: auto;
+    margin-top: 5px;
+    padding-left: 3%;
+    padding-right: 3%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-style: solid;
+    border-color: rgb(170,170,170);
+    border-width: 1px;
+    font-weight: 700;
+}
+
+.watch {
+    background-color: white;
+    border-color: #035300;
+    color: #035300;
+    height: 30px;
+    font-weight: bold;
+}
+
+.share {
+    background-color: #035300;
+    border-color: #035300;
+    color: white;
+    height: 30px;
+    margin-left: 5px;
+    font-weight: 600;
+}
+
+.nameField {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.butts {
+    float: right;
+    transform: translate(0, -5px);
+}

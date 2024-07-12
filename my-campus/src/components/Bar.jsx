@@ -99,7 +99,13 @@ const SideBar = ({studentId, setId, name, setName}) => {
                         </span>
                     </div>
                     <div className="friendSelection">
-                        <span onClick={() => navigate('/friends')}>
+                        <span onClick={() => {
+                            if (studentId === '') {
+                                alert("you have to login first");
+                            } else {
+                                navigate('/friends/');
+                            }
+                        }}>
                             <PeopleAltOutlinedIcon className='listIcon'/> Friends
                         </span>
                     </div>

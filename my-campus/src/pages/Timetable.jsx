@@ -21,13 +21,15 @@ const Timetable = ( {token} ) => {
         axios.get('http://127.0.0.1:5000/timetable/',
             { 
               params : {
+                'token': token,
                 'studentId': studentId
               }
             }).then(({ data }) => {
                 console.log(data);
                 setSuccess(true);
-                setName(data.name);
-                setTimetable(data.timetable);
+                    setName(data.name);
+                    setTimetable(data.timetable);
+                
             }
           )
           .catch((err) => {
@@ -54,11 +56,12 @@ const Timetable = ( {token} ) => {
                 {token === studentId && <h1>Your Timetable</h1>}
             </div>}
             <div className="whiteSpace"></div>
-            <div className="list">
+            {timetable && <div className="list">
                 {
                     timetable.map(item => <ExpansionList item={item} type={'timetable'}></ExpansionList>)
                 }
-            </div>
+            </div>}
+            {!timetable && <p>Sorry you do not have access</p>}
         </div>}
     </>
 

@@ -16,13 +16,15 @@ import {
   BrowserRouter,
   Routes,
   Route,
+  Navigate,
+  useNavigate,
 } from 'react-router-dom';
 import './App.css';
 function App() {
     
-    let json = require('./path.json');
-    console.log(json.path);
-    localStorage.setItem("apiPath", json.path);
+    //let json = require('./path.json');
+    //console.log(json.path);
+    //localStorage.setItem("apiPath", json.path);
     localStorage.setItem("markers", []);
     const [id, setId] = React.useState("");
     const [name, setName] = React.useState("");
@@ -33,7 +35,7 @@ function App() {
                     <Routes>
                         <Route path="/" element={<Main id={id} setId={setId} name={name} setName={setName}/>} />
                         <Route path="/timetable/:studentId" element={<Timetable token={id}/>} />
-                        <Route path="/friends/" element={<Friends />} />
+                        <Route path="/friends/" element={<Friends token={id} />} />
                         <Route path="/map/:buildingId" element={<Submain id={id} setId={setId} name={name} setName={setName}/>} />
                         <Route path="/building/:buildingId/" element={<Building />} />
                         <Route path="/facility/:facilityId/" element={<Facility />} />
