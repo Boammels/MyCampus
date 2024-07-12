@@ -44,8 +44,9 @@ def class_details():
 
 @APP.route('/timetable/', methods = ['GET'])
 def timetable():
+    token = request.args.get('token')
     student_id = request.args.get('studentId')
-    return dumps(get_timetable(student_id, student_list, event_list, class_list, reservation_list))
+    return dumps(get_timetable(int(token), int(student_id), student_list, event_list, class_list, reservation_list))
 
 @APP.route('/login/', methods = ['POST'])
 def login():
@@ -68,8 +69,40 @@ def reservation_details():
     reservation_id = request.args.get('reservationId')
     return dumps(query_reservation(building_list, reservation_list, reservation_id))
 
+@APP.route('/edit/watch/', methods = ['POST'])
+def edit_watch():
+    student_id = request.json['studentId']
+    friend_id = request.json['friendId']
+    change_watch(int(student_id), int(friend_id), student_list)
+    return dumps({
+        "result": 'success'
+    })
 
+@APP.route('/edit/share/', methods = ['POST'])
+def edit_share():
+    student_id = request.json['studentId']
+    friend_id = request.json['friendId']
+    change_share(int(student_id), int(friend_id), student_list)
+    return dumps({
+        "result": 'success'
+    })
 
+@APP.route('/search/student/', methods = ['GET'])
+def search_student():
+    token = request.args.get('token')
+    search_content = request.args.get('searchContent')
+    print(search_content)
+    return dumps(query_student(token, student_list, search_content))
+
+@APP.route('/friends/Watch/', methods = ['GET'])
+def get_watch_list():
+    token = request.args.get('token')
+    return dumps(query_student_list(token, student_list, 'watch'))
+
+@APP.route('/friends/Share/', methods = ['GET'])
+def get_share_list():
+    token = request.args.get('token')
+    return dumps(query_student_list(token, student_list, 'share'))
 
 
 
