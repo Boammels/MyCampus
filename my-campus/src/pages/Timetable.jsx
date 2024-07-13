@@ -61,7 +61,7 @@ const Timetable = ( {token} ) => {
                     timetable.map(item => <ExpansionList item={item} type={'timetable'}></ExpansionList>)
                 }
             </div>}
-            {!timetable && <p>Sorry you do not have access</p>}
+            {!timetable && <p className="noAccess">Sorry you do not have access</p>}
         </div>}
     </>
 

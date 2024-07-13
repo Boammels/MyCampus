@@ -57,7 +57,8 @@ const Friends = ({ token }) => {
     React.useEffect(() => {getList(listType)}, [token])
 
     const reload = async () => {
-        getSearch();
+        if (input !== '')
+            getSearch();
         getList(listType);
     }
 
