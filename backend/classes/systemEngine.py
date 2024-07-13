@@ -149,6 +149,8 @@ def get_timetable(token, student_id, students, events, classes, reservations):
                 for item in student.list.values():
                     if token == item['id'] and item['share']:
                         access=True
+            else:
+                access = True
             if access == False:
                 print(1)
                 return {
