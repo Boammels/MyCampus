@@ -141,9 +141,21 @@ def query_class(building_list, class_list, class_id):
             return classobj.to_details(building_list)
     return None
 
-def get_timetable(student_id, students, events, classes, reservations):
+def get_timetable(token, student_id, students, events, classes, reservations):
     for student in students:
-        if str(student.student_id) == student_id:
+        if student.student_id == student_id:
+            access = False
+            if token != student_id:
+                for item in student.list.values():
+                    if token == item['id'] and item['share']:
+                        access=True
+            if access == False:
+                print(1)
+                return {
+                    'name' : student.name,
+                    'timetable': False
+                }
+            print(2)
             student_information = {
                 'name' : student.name,
                 'timetable': student.get_student_timetable(events, classes, reservations)
@@ -170,3 +182,65 @@ def query_reservation(building_list, reservation_list, reservation_id):
                     res['facility_name'] = facility.english_name
     return res
 
+def change_watch(self_id, friend_id, students):
+    name = ''
+    this = None
+    for student in students:
+        if self_id == student.student_id:
+            this = student
+        elif friend_id == student.student_id:
+            name = student.name
+    if this != None and name != '':
+        this.edit_watch(friend_id, name)
+
+def change_share(self_id, friend_id, students):
+    name = ''
+    this = None
+    for student in students:
+        if self_id == student.student_id:
+            this = student
+        elif friend_id == student.student_id:
+            name = student.name
+    if this != None and name != '':
+        this.edit_share(friend_id, name)
+
+def query_student (token, students, search_content):
+    this = None
+    for student in students:
+        if student.student_id == int(token):
+            this = student
+    if this != None:
+        print('found')
+    res = []
+    for student in students:
+        record = False
+        if search_content in student.name:
+            record = True
+        elif search_content.isnumeric():
+            if student.student_id == int(search_content):
+                record = True
+        if record:
+            student_res = {}
+            student_res['name'] = student.name
+            student_res['id'] = student.student_id
+            if student.student_id == int(token):
+                continue
+            share_watch = this.check_share_watch(student.student_id)
+            if share_watch == None:
+                student_res['share'] = False
+                student_res['watch'] = False
+            else:
+                student_res['share'] = share_watch['share']
+                student_res['watch'] = share_watch['watch']
+            res.append(student_res)
+    return {'res': res}
+    
+def query_student_list(token, students, type):
+    this = None
+    for student in students:
+        if student.student_id == int(token):
+            this = student
+    if type == 'watch':
+        return this.get_watch()
+    else:
+        return this.get_share()
