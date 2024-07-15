@@ -23,7 +23,7 @@ therefore, there are some package required to be installed in advance before the
 
 Please enter the backend folder and use following code to run:
 
->     python3 server.py
+     `python3 server.py`
 
 By default, the server will run at port 5000.
 ### frontend
