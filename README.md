@@ -29,11 +29,11 @@ Before the first time running the front end, please:
    2) You code run the following code to make sure node.js is successfully installed:
       ![image](https://github.com/user-attachments/assets/72b2e3eb-3caa-4ded-afb5-e1310f502a67)
    3) Once you have installed node.js, you can use npm to intall yarn by
-   4) When yarn is installed run:
 >     npm install --global yarn
-   5) The command above shoud get all modules like react-google-map installed
-   6) Now enter my-campus folder, where all our front end source code is stored and run:
+   4) When yarn is installed, enter my-campus folder, where all our front end source code is stored and run::
 >     yarn install
+   5) The command above shoud get all modules like react-google-map installed 
+
 
 Now your machine is all set for the front end
 
